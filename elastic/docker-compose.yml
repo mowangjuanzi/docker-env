@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.4
+    ports:
+      - 9201:9200
+      - 9301:9300
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
